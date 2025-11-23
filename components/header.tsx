@@ -1,12 +1,21 @@
 'use client';
 import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs';
-import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Button } from './ui/button';
 
-function Header() {
+export default function Header() {
   return (
-    <header>     
+    <header className='fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-bottom'> 
+    <nav className='container mx-auto px-4 py-4 flex items-cente justify-between'>
+      <Link href='/'>
+      <Image src='/logo.png' alt='logo' height={60} width={200} className='h-12 w-auto object-contain'/>
+      </Link>
+      <div className='flex gap-2'>
         <SignedOut>
-          <SignInButton />
+          <SignInButton forceRedirectUrl={'/dashboard'}>
+            <Button variant={'outline'}>Login</Button>
+          </SignInButton>
           <SignUpButton>
             <button className='bg-[#6c47ff] text-ceramic-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer'>
               Sign Up
@@ -16,8 +25,10 @@ function Header() {
         <SignedIn>
           <UserButton/>
         </SignedIn>     
+      </div>
+      </nav>     
     </header>
   );
 }
 
-export default Header;
+
