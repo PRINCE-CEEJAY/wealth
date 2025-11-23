@@ -1,11 +1,10 @@
 'use client';
-import { SignedOut, SignInButton, SignUpButton } from '@clerk/nextjs';
+import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs';
 import React from 'react';
 
 function Header() {
   return (
-    <header>
-      <div>
+    <header>     
         <SignedOut>
           <SignInButton />
           <SignUpButton>
@@ -14,7 +13,9 @@ function Header() {
             </button>
           </SignUpButton>
         </SignedOut>
-      </div>
+        <SignedIn>
+          <UserButton/>
+        </SignedIn>     
     </header>
   );
 }
