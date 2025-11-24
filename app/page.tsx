@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 
 export default function Home() {
   return (
-    <div className='flex flex-col justify-center items-center min-h-screen'>
+    <div className='flex flex-col justify-center items-center min-h-screen mt-40'>
       <h1>Home </h1>
       <Button variant={`destructive`}>Subscribe to CeeJay Tech</Button>
     </div>
